@@ -7,72 +7,84 @@
             <form action="#">
               <div class="cardify signup_form">
                 <div class="login--header">
-                  <h3>Create Your Account</h3>
-                  <p>
-                    Please fill the following fields with appropriate information to
-                    register a new MartPlace account.
-                  </p>
+                  <h3>Créez un compte marchand</h3>
+                  <p>Remplissez tous les champs pour créer un compte marchand !</p>
                 </div>
                 <!-- end .login_header -->
                 <div class="login--form">
                   <div class="form-group">
-                    <label for="urname">Your Name</label>
+                    <label for="categorie">Vous êtes ?</label>
+                    <div class="select-wrap select-wrap2">
+                      <select name="months" id="categorie">
+                        <option value="">Sélectionnez votre categorie...</option>
+                        <option value="jan">categorie 01</option>
+                        <option value="jan">categorie 02</option>
+                        <option value="jan">categorie 03</option>
+                        <option value="jan">categorie 04</option>
+                      </select>
+                      <span class="lnr lnr-chevron-down"></span>
+                    </div>
+                    <!-- end /.select-wrap -->
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email_ad">Nom</label>
                     <input
-                      id="urname"
+                      id="name"
                       type="text"
                       class="text_field"
-                      placeholder="Enter your Name"
+                      placeholder="Entrez votre nom marchand..."
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="email_ad">Email Address</label>
+                    <label for="user_email">E-mail</label>
                     <input
-                      id="email_ad"
-                      type="text"
+                      id="user_email"
+                      type="email"
                       class="text_field"
-                      placeholder="Enter your email address"
+                      placeholder="Entrez votre adresse e-mail..."
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="user_name">Username</label>
+                    <label for="phone">Téléphone</label>
                     <input
-                      id="user_name"
-                      type="text"
+                      id="phone"
+                      type="number"
                       class="text_field"
-                      placeholder="Enter your username..."
+                      placeholder="Entrez votre n° de téléphone..."
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="password">Password</label>
-                    <input
-                      id="password"
-                      type="text"
-                      class="text_field"
-                      placeholder="Enter your password..."
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="con_pass">Confirm Password</label>
+                    <label for="con_pass">Mot de passe</label>
                     <input
                       id="con_pass"
-                      type="text"
+                      type="password"
                       class="text_field"
-                      placeholder="Confirm password"
+                      placeholder="Entrez votre mot de passe"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="con_confirmation">Confirmation</label>
+                    <input
+                      id="con_confirmation"
+                      type="password"
+                      class="text_field"
+                      placeholder="Confirmez votre mot de passe"
                     />
                   </div>
 
                   <button class="btn btn--md btn--round register_btn" type="submit">
-                    Register Now
+                    Créer un compte
                   </button>
 
                   <div class="login_assist">
                     <p>
-                      Already have an account?
-                      <a href="signup.html">Login</a>
+                      vous avez déjà un compte ?
+                      <a href="#/login">Connectez-vous !</a>
                     </p>
                   </div>
                 </div>
@@ -87,5 +99,37 @@
       </div>
       <!-- end .container -->
     </section>
+    <footer class="footer-area fixed-bottom">
+      <div class="mini-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="copyright-text">
+                <p>
+                  © 2022 <a href="#">Cercle Royal</a>. Rapidos Group Technology
+                  <a href="#">RDC</a>
+                </p>
+              </div>
+
+              <!--<div class="go_top" style="display: block">
+                <span class="lnr lnr-chevron-up"></span>
+              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
+
+<script>
+export default {
+  name: "RegisterPage",
+
+  methods: {
+    onBack() {
+      this.$router.go(-1);
+    },
+  },
+};
+</script>

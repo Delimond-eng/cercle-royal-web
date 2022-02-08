@@ -289,11 +289,7 @@ a {
     -o-transition: opacity .3s linear;
     transition: opacity .3s linear;
     -webkit-transition: opacity .3s linear;
-    opacity: 0
-}
-
-.bg_image_holder img {
-    display: none
+    opacity: 0;
 }
 
 .or {
@@ -1142,11 +1138,19 @@ h6 {
 
 .menu--style1 .mainmenu,
 .menu--style1 .mainmenu__menu {
-    background: rgb(199, 111, 4)
+    background: rgb(16, 2, 48)
 }
 
 .menu--style1 .mainmenu__menu ul li:hover a {
-    color: #333
+    color: rgb(187, 182, 182)
+}
+
+.menu--style1 .mainmenu__menu ul li a:active {
+    color: rgb(189, 98, 13)
+}
+
+.menu--style1 .mainmenu__menu ul li a:focus {
+    color: rgb(236, 121, 13)
 }
 
 .menu--style1 .mainmenu__menu ul li a {
@@ -3133,7 +3137,7 @@ h6 {
 }
 
 .breadcrumb ul li:after {
-    content: '/';
+    content: '';
     color: #fff;
     padding: 0 7px
 }
@@ -3556,10 +3560,6 @@ h6 {
     transition: opacity .3s linear;
     -webkit-transition: opacity .3s linear;
     opacity: 0
-}
-
-.bg_image_holder img {
-    display: none
 }
 
 .or {
@@ -4848,10 +4848,6 @@ h6 {
     transition: opacity .3s linear;
     -webkit-transition: opacity .3s linear;
     opacity: 0
-}
-
-.bg_image_holder img {
-    display: none
 }
 
 .or {
@@ -6457,10 +6453,6 @@ div#ui-datepicker-div tbody tr td a:hover {
     opacity: 0
 }
 
-.bg_image_holder img {
-    display: none
-}
-
 .or {
     width: 100%;
     background: #ececec;
@@ -7709,7 +7701,12 @@ ul.nav-tabs.nav--tabs2 li a::before {
 .author__avatar {
     position: relative;
     display: inline-block;
-    vertical-align: middle
+    vertical-align: middle;
+}
+
+.author__avatar img {
+    border-radius: 50em;
+    box-shadow: rgba(199, 111, 4, 0.24) 0px 3px 8px;
 }
 
 .author__avatar span {
@@ -8000,13 +7997,13 @@ ul.nav-tabs.nav--tabs2 li a::before {
     height: 100%;
     width: 100%;
     content: '';
-    background: -webkit-gradient(linear, right top, left top, from(rgb(199, 111, 4)), to(rgb(199, 111, 4)));
-    background: -webkit-linear-gradient(right, rgb(199, 111, 4), rgb(199, 111, 4));
-    background: -o-linear-gradient(right, rgb(199, 111, 4), rgb(199, 111, 4));
-    background: linear-gradient(to left, rgb(199, 111, 4), rgb(199, 111, 4));
+    background: -webkit-gradient(linear, right top, left top, from(rgb(199, 111, 4)), to(#f05b44));
+    background: -webkit-linear-gradient(right, rgb(199, 111, 4), #f05b44);
+    background: -o-linear-gradient(right, rgb(199, 111, 4), #f05b44);
+    background: linear-gradient(to left, rgb(199, 111, 4), #f05b44);
     top: 0;
     left: 0;
-    opacity: .6
+    opacity: .5
 }
 
 .hero-area.hero--1:before {
@@ -9129,7 +9126,7 @@ span.counter {
 .breadcrumb-area,
 .search-area2 {
     position: relative;
-    padding-top: 64px
+    padding-top: 64px;
 }
 
 .breadcrumb-area:before,
@@ -9138,11 +9135,11 @@ span.counter {
     height: 100%;
     width: 100%;
     position: absolute;
-    background: -webkit-gradient(linear, right top, left top, from(#7347c1), to(rgb(199, 111, 4)));
-    background: -webkit-linear-gradient(right, #7347c1, rgb(199, 111, 4));
-    background: -o-linear-gradient(right, #7347c1, rgb(199, 111, 4));
-    background: linear-gradient(to left, #7347c1, rgb(199, 111, 4));
-    opacity: .91;
+    background: -webkit-gradient(linear, right top, left top, from(#eee), to(#f5fafe));
+    background: -webkit-linear-gradient(right, #eee, #f5fafe);
+    background: -o-linear-gradient(right, #eee, #f5fafe);
+    background: linear-gradient(to left, #eee, #f5fafe);
+    opacity: .7;
     top: 0;
     left: 0
 }

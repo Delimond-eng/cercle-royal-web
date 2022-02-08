@@ -14,7 +14,7 @@ Vue.use(Vuex);
 
 //axios instance
 var instance = axios.create({
-    baseURL: '',
+    baseURL: 'http://cercle-royal.rtgroup-rdc.com',
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
@@ -25,7 +25,8 @@ Vue.prototype.$axios = instance;
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
-
+//global components
+Vue.component('GLoading', require('@/components/widgets/loading').default);
 
 const store = new Vuex.Store(storeData);
 
@@ -33,4 +34,4 @@ new Vue({
     router,
     store,
     render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

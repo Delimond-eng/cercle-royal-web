@@ -1,5 +1,6 @@
 const states = {
-    baseURL: 'http://enhakkore.rtgroup-rdc.com',
+    baseURL: 'http://cercle-royal.rtgroup-rdc.com',
+    user: {}
 };
 
 export default states;
