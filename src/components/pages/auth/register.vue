@@ -1,5 +1,6 @@
 <template>
   <div>
+    <g-loading v-if="isLoading" />
     <section class="signup_area section--padding2">
       <div class="container">
         <div class="row">
@@ -15,15 +16,19 @@
                   <div class="form-group">
                     <label for="categorie">Vous êtes ?</label>
                     <div class="select-wrap select-wrap2">
-                      <select name="months" id="categorie">
+                      <select name="months" id="categorie" v-model="form.categorie">
                         <option value="">Sélectionnez votre categorie...</option>
-                        <option value="jan">categorie 01</option>
-                        <option value="jan">categorie 02</option>
-                        <option value="jan">categorie 03</option>
-                        <option value="jan">categorie 04</option>
+                        <option
+                          v-for="data in config"
+                          :key="data.marchand_categorie_id"
+                          :value="data.marchand_categorie_id"
+                        >
+                          {{ data.categorie }}
+                        </option>
                       </select>
                       <span class="lnr lnr-chevron-down"></span>
                     </div>
+                    <span class="text-danger">{{ errorArr[0] }}</span>
                     <!-- end /.select-wrap -->
                   </div>
 
@@ -33,8 +38,10 @@
                       id="name"
                       type="text"
                       class="text_field"
+                      v-model="form.nom"
                       placeholder="Entrez votre nom marchand..."
                     />
+                    <span class="text-danger">{{ errorArr[1] }}</span>
                   </div>
 
                   <div class="form-group">
@@ -42,9 +49,11 @@
                     <input
                       id="user_email"
                       type="email"
+                      v-model="form.email"
                       class="text_field"
                       placeholder="Entrez votre adresse e-mail..."
                     />
+                    <span class="text-danger">{{ errorArr[2] }}</span>
                   </div>
 
                   <div class="form-group">
@@ -52,9 +61,11 @@
                     <input
                       id="phone"
                       type="number"
+                      v-model="form.phone"
                       class="text_field"
                       placeholder="Entrez votre n° de téléphone..."
                     />
+                    <span class="text-danger">{{ errorArr[3] }}</span>
                   </div>
 
                   <div class="form-group">
@@ -62,22 +73,30 @@
                     <input
                       id="con_pass"
                       type="password"
+                      v-model="form.pass"
                       class="text_field"
                       placeholder="Entrez votre mot de passe"
                     />
+                    <span class="text-danger">{{ errorArr[4] }}</span>
                   </div>
 
                   <div class="form-group">
                     <label for="con_confirmation">Confirmation</label>
                     <input
                       id="con_confirmation"
+                      v-model="form.confirm"
                       type="password"
                       class="text_field"
                       placeholder="Confirmez votre mot de passe"
                     />
+                    <span class="text-danger">{{ errorArr[5] }}</span>
                   </div>
 
-                  <button class="btn btn--md btn--round register_btn" type="submit">
+                  <button
+                    class="btn btn--md btn--round register_btn"
+                    type="submit"
+                    @click.prevent="createAccount"
+                  >
                     Créer un compte
                   </button>
 
@@ -126,9 +145,91 @@
 export default {
   name: "RegisterPage",
 
+  data() {
+    return {
+      form: {
+        categorie: "",
+        nom: "",
+        email: "",
+        phone: "",
+        pass: "",
+        confirm: "",
+      },
+      errorArr: [],
+      isLoading: false,
+    };
+  },
+
+  computed: {
+    config() {
+      return this.$store.getters.getMarchandCategories;
+    },
+  },
+
   methods: {
-    onBack() {
-      this.$router.go(-1);
+    createAccount() {
+      if (this.form.categorie === "") {
+        this.errorArr.push("Catégorie marchandrequise !");
+      } else {
+        this.errorArr[0] = "";
+      }
+      if (this.form.nom === "") {
+        this.errorArr.push("Le nom du marchand est requis !");
+      } else {
+        this.errorArr[1] = "";
+      }
+      if (this.form.email === "") {
+        this.errorArr.push("L'adresse e-mail requise !");
+      } else {
+        this.errorArr[2] = "";
+      }
+      if (this.form.phone === "") {
+        this.errorArr.push("numéro de téléphone requis !");
+      } else {
+        this.errorArr[3] = "";
+      }
+      if (this.form.pass === "") {
+        this.errorArr.push("Mot de passe requis !");
+      } else {
+        this.errorArr[4] = "";
+      }
+      if (this.form.confirm === "" || this.form.confirm != this.form.pass) {
+        this.errorArr.push("Confirmation du mot de passe requise !");
+        return;
+      }
+      this.errorArr.splice(0);
+      this.isLoading = true;
+      let formData = new FormData();
+      formData.append("marchand_categorie_id", this.form.categorie);
+      formData.append("nom", this.form.nom);
+      formData.append("email", this.form.email);
+      formData.append("telephone", this.form.phone);
+      formData.append("pass", this.form.pass);
+      try {
+        this.$axios.post("/connexion/marchands/registeraccount", formData).then((res) => {
+          this.isLoading = false;
+          try {
+            let status = res.data.reponse.status;
+            if (status === "success") {
+              let userData = JSON.stringify(res.data.reponse.data);
+              localStorage.setItem("user", userData);
+              this.$router.go(this.$router.push({ name: "home" }));
+            }
+          } catch (e) {
+            this.$swal({
+              toast: true,
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: false,
+              icon: "warning",
+              title: "Echec de la création du compte !",
+            });
+            return;
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 };

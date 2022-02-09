@@ -1,5 +1,6 @@
 <template>
   <div>
+    <g-loading v-if="isLoading" />
     <section class="dashboard-area">
       <div class="dashboard_contents">
         <div class="container">
@@ -19,58 +20,58 @@
 
           <div class="row">
             <div class="col-lg-8 col-md-7">
-              <form action="#">
-                <div class="upload_modules">
-                  <div class="modules__title">
-                    <h3>Informations sur la remise</h3>
-                  </div>
-                  <!-- end /.module_title -->
+              <div class="upload_modules">
+                <div class="modules__title">
+                  <h3>Informations sur la remise</h3>
+                </div>
+                <!-- end /.module_title -->
 
-                  <div class="modules__content">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="category">Sélectionnez une offre</label>
-                          <div class="select-wrap select-wrap2">
-                            <select name="country" id="category" class="text_field">
-                              <option value="">Sélectionnez une offre</option>
-                              <option value="wordpress">Wordpress</option>
-                              <option value="html">Html</option>
-                              <option value="graphic">Graphics</option>
-                              <option value="illustration">Illustration</option>
-                              <option value="music">Music</option>
-                              <option value="video">Video</option>
-                            </select>
-                            <span class="lnr lnr-chevron-down"></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="remise"
-                            >Remise
-                            <span>(ex. 10)</span>
-                          </label>
-                          <input
-                            type="number"
-                            id="remise"
+                <div class="modules__content">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="category">Sélectionnez une offre</label>
+                        <div class="select-wrap select-wrap2">
+                          <select
+                            name="country"
+                            id="category"
                             class="text_field"
-                            placeholder="Entrez la remise (ex. 10%)..."
-                          />
+                            v-model="form.offre_id"
+                          >
+                            <option value="">Sélectionnez une offre</option>
+                            <option
+                              v-for="offre in offers"
+                              :key="offre.offre_id"
+                              :value="offre.offre_id"
+                            >
+                              {{ offre.titre }}
+                            </option>
+                          </select>
+                          <span class="lnr lnr-chevron-down"></span>
                         </div>
+                        <span class="text-danger">error from data</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="remise"
+                          >Remise
+                          <span>(ex. 10)</span>
+                        </label>
+                        <input
+                          type="number"
+                          id="remise"
+                          class="text_field"
+                          placeholder="Entrez la remise (ex. 10%)..."
+                        />
+                        <span class="text-danger">error from data</span>
                       </div>
                     </div>
                   </div>
-                  <!-- end /.modules__content -->
                 </div>
 
-                <button
-                  type="submit"
-                  class="btn btn--round btn--fullwidth btn--lg text-uppercase"
-                >
-                  <span class="lnr lnr-cog info-icon mr-2"></span>Configurer
-                </button>
-              </form>
+                <!-- end /.modules__content -->
+              </div>
             </div>
 
             <div class="col-lg-4 col-md-5">
@@ -97,6 +98,7 @@
                           </select>
                           <span class="lnr lnr-chevron-down"></span>
                         </div>
+                        <span class="text-danger">error from data</span>
                       </div>
 
                       <div class="row">
@@ -111,6 +113,7 @@
                                 placeholder="00:00"
                               />
                             </div>
+                            <span class="text-danger">heure d. requis </span>
                           </div>
                         </div>
 
@@ -125,10 +128,16 @@
                                 placeholder="00:00"
                               />
                             </div>
+                            <span class="text-danger">heure fin requis</span>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn--round btn--md text-uppercase">
+                      <span class="lnr lnr-cog info-icon mr-2"></span>Configurer remise
+                    </button>
                   </div>
                 </div>
                 <!-- end /.sidebar-card -->
@@ -146,3 +155,30 @@
     </section>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  name: "ConfigOffer",
+  data() {
+    return {
+      form: {
+        offre_id: "",
+        remise: "",
+        remise_id: "",
+        jour: "",
+        startAt: "",
+        endAt: "",
+      },
+      errorArr: [],
+      isLoading: false,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      offers: "getOffers",
+      user: "getUser",
+    }),
+  },
+};
+</script>

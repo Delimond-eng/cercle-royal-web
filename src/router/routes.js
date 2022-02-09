@@ -11,6 +11,7 @@ import creatingOfferPage from "@/components/pages/public/pages/creating_offer_pa
 import assignOfferPage from "@/components/pages/public/pages/assign_offer_page.vue";
 import configOfferPage from "@/components/pages/public/pages/config_remise_on_offer_page.vue";
 import creatingShopPage from "@/components/pages/public/pages/creating_shop_page.vue";
+import userProfilePage from "@/components/pages/public/pages/user_profil_page.vue";
 
 const routes = [{
         path: "/",
@@ -40,6 +41,11 @@ const routes = [{
                 path: "/create/shop",
                 component: creatingShopPage,
                 name: "create-shop"
+            },
+            {
+                path: '/user/profile',
+                component: userProfilePage,
+                name: 'user-profil'
             }
 
         ]

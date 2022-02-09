@@ -137,7 +137,7 @@ export default {
         .post("/connexion/marchands/login", formData)
         .then((result) => {
           this.isLoading = false;
-          console.log(JSON.stringify(result.data));
+
           try {
             let status = result.data.reponse.status;
             if (status === "success") {

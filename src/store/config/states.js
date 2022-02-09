@@ -1,6 +1,9 @@
 const states = {
     baseURL: 'http://cercle-royal.rtgroup-rdc.com',
-    user: {}
+    user: {},
+    marchandCategories: [],
+    offers: [],
+    shops: []
 };
 
 export default states;

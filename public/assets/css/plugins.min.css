@@ -8324,7 +8324,7 @@ body .ui-tooltip {
     text-shadow: 0 0 7px #333
 }
 
-@media screen and (min-width:0 \0) {
+@media screen and (min-width:00) {
     .trumbowyg-box-blur .trumbowyg-editor *,
     .trumbowyg-box-blur .trumbowyg-editor::before {
         color: rgba(200, 200, 200, .6)!important
@@ -8892,7 +8892,7 @@ body.trumbowyg-body-fullscreen {
     text-shadow: 0 0 7px #ccc
 }
 
-@media screen and (min-width:0 \0) {
+@media screen and (min-width:00) {
     .trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,
     .trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before {
         color: rgba(20, 20, 20, .6)!important
@@ -13756,7 +13756,7 @@ input[type=submit].btn-block {
 }
 
 .navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
 }
 
 .navbar-light .navbar-text {
@@ -19309,8 +19309,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }
@@ -19383,5 +19383,88 @@ a.text-dark:hover {
     .table .thead-dark th {
         color: inherit;
         border-color: #dee2e6
+    }
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+@media print {
+    *,
+     ::after,
+     ::before {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+    a:not(.btn) {
+        text-decoration: underline;
+    }
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    blockquote,
+    pre {
+        border: 1px solid #adb5bd;
+        page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group;
+    }
+    img,
+    tr {
+        page-break-inside: avoid;
+    }
+    h2,
+    h3,
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+    @page {
+        size: a3;
+    }
+    body {
+        min-width: 992px !important;
+    }
+    .container {
+        min-width: 992px !important;
+    }
+    .navbar {
+        display: none;
+    }
+    .badge {
+        border: 1px solid #000;
+    }
+    .table {
+        border-collapse: collapse !important;
+    }
+    .table td,
+    .table th {
+        background-color: #fff !important;
+    }
+    .table-bordered td,
+    .table-bordered th {
+        border: 1px solid #dee2e6 !important;
+    }
+    .table-dark {
+        color: inherit;
+    }
+    .table-dark tbody+tbody,
+    .table-dark td,
+    .table-dark th,
+    .table-dark thead th {
+        border-color: #dee2e6;
+    }
+    .table .thead-dark th {
+        color: inherit;
+        border-color: #dee2e6;
     }
 }

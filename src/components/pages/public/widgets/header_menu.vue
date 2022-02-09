@@ -5,7 +5,7 @@
 ================================= -->
     <!-- start menu-area -->
     <g-loading v-if="isLoading" />
-    <div class="menu-area menu--style1">
+    <div class="menu-area menu--style1 fixed-top">
       <!-- start .top-menu-area -->
       <div class="top-menu-area">
         <!-- start .container -->
@@ -141,8 +141,8 @@
                   <div class="dropdowns dropdown--author">
                     <ul>
                       <li v-if="user">
-                        <a href="author.html">
-                          <span class="lnr lnr-user"></span>Profile</a
+                        <router-link tag="a" :to="{ name: 'user-profil' }">
+                          <span class="lnr lnr-user"></span>Profile</router-link
                         >
                       </li>
 
@@ -194,17 +194,14 @@
 
                   <!--start .author__notification_area -->
 
-                  <div class="dropdowns dropdown--author">
+                  <!--<div class="dropdowns dropdown--author">
                     <ul>
                       <li v-if="user">
-                        <a href="#"> <span class="lnr lnr-user"></span>Profile</a>
+                        <router-link tag="a" :to="{ name: 'user-profil' }">
+                          <span class="lnr lnr-user"></span>Profile</router-link
+                        >
                       </li>
-                      <li v-if="user">
-                        <a href="#">
-                          <span class="lnr lnr-alarm"></span>
-                          Notifications
-                        </a>
-                      </li>
+
                       <li>
                         <a href="#" @click="logout" v-if="user">
                           <span class="lnr lnr-exit"></span>Deconnexion</a
@@ -214,7 +211,7 @@
                         >
                       </li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- end /.mobile_content -->
@@ -245,7 +242,7 @@
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span class="navbar-toggler-icon text--white"></span>
+                  <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarNav4">

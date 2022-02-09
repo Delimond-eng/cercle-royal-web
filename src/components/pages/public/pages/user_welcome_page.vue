@@ -1,59 +1,6 @@
 <template>
   <div>
-    <section
-      class="search-wrapper"
-      style="
-        background-image: url(assets/images/sbg.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom;
-      "
-    >
-      <div class="search-area2 bgimage">
-        <div class="container content_above">
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <div class="search">
-                <div class="search__title">
-                  <h3 class="text-secondary">
-                    Bienvenu sur votre compte Cercle Royal marchand !
-                  </h3>
-                </div>
-                <div class="search__field">
-                  <form action="#">
-                    <div class="field-wrapper">
-                      <input
-                        class="relative-field rounded"
-                        type="text"
-                        placeholder="Recherche..."
-                      />
-                      <button class="btn btn--round" type="submit">
-                        <span class="fa fa-search text--white"></span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <div class="breadcrumb">
-                  <ul>
-                    <li>
-                      <a href="#"></a>
-                    </li>
-                    <li class="active">
-                      <a href="#"></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end /.row -->
-        </div>
-        <!-- end /.container -->
-      </div>
-      <!-- end /.search-area2 -->
-    </section>
-
-    <section class="products section--padding2">
+    <section class="products section--padding" style="margin-top: 100px">
       <!-- start container -->
       <div class="container">
         <!-- start .row -->
@@ -175,3 +122,9 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  name: "User-welcome",
+};
+</script>
