@@ -26,6 +26,9 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 
+import VueEasyLightbox from 'vue-easy-lightbox';
+Vue.use(VueEasyLightbox);
+
 import VModal from 'vue-js-modal/dist/index.nocss.js';
 import 'vue-js-modal/dist/styles.css';
 Vue.use(VModal, { componentName: 'GModal', dynamicDefault: { draggable: true, resizable: true } });
@@ -33,6 +36,7 @@ Vue.use(VModal, { componentName: 'GModal', dynamicDefault: { draggable: true, re
 
 //global components
 Vue.component('GLoading', require('@/components/widgets/loading').default);
+Vue.component(VueEasyLightbox.name, VueEasyLightbox);
 
 const store = new Vuex.Store(storeData);
 

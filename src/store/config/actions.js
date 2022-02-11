@@ -73,6 +73,7 @@ const actions = {
                 axios
                     .post(`${state.baseURL}/content/marchand`, formData)
                     .then((result) => {
+
                         commit("setGaleries", result.data.reponse.galleries);
                     })
                     .catch((err) => console.log(err));

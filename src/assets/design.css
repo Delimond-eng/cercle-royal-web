@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.many-img {
+    box-shadow: rgba(14, 1, 39, 0.4) -5px 5px, rgba(68, 42, 3, 0.3) -10px 10px, rgba(240, 140, 46, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(1, 24, 39, 0.05) -25px 25px;
+}
+
 .gallery-items:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     -webkit-transition: all 0.3s;
@@ -109,16 +113,38 @@
 }
 
 .modal-picture-header {
-    height: 200px;
+    height: 150px;
     width: 100%;
-    background: rgb(243, 205, 102);
+    background: #979b96;
     border-radius: 5px;
-    box-shadow: rgba(14, 1, 39, 0.4) -5px 5px, rgba(68, 42, 3, 0.3) -10px 10px, rgba(240, 140, 46, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(1, 24, 39, 0.05) -25px 25px;
-    margin: 15px;
+    margin: 10px;
+}
+
+.modal-picture-header .btn-delete {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 40px;
+    align-items: center;
+    border: none;
+    width: 40px;
+    border-radius: 50em;
+    background-color: rgb(240, 133, 133);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.modal-picture-header .btn-delete:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all .3s;
+}
+
+.modal-picture-header .btn-delete .b-icon {
+    margin: 0 auto;
+    color: #fff;
 }
 
 .modal-picture-header img {
-    height: 200px;
+    height: 150px;
     width: 100%;
     border-radius: 5px;
     object-fit: cover;
@@ -146,4 +172,48 @@
 .modal-btn-close .icon {
     margin: 0 auto;
     color: #fff;
+}
+
+.modal-btn-close:hover {
+    background-color: rgba(121, 10, 10, 0.445);
+}
+
+.modal-btn-close .icon {
+    margin: 0 auto;
+    color: #fff;
+}
+
+.btn-add2 {
+    background-color: #03033d;
+    width: 100%;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.btn-add2 .btn-icon {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.btn-add2:hover {
+    background-color: rgb(44, 48, 71);
+}
+
+.btn-add2 input {
+    visibility: hidden;
+}
+
+.btn-add2:hover {
+    background-color: rgb(44, 48, 71);
+}
+
+.btn-add2 input {
+    visibility: hidden;
 }
