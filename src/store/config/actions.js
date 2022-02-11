@@ -48,6 +48,34 @@ const actions = {
                         commit("setShops", result.data.point_ventes);
                     })
                     .catch((err) => console.log(err));
+
+                axios
+                    .post(`${state.baseURL}/content/marchand`, formData)
+                    .then((result) => {
+                        commit("setGaleries", result.data.reponse.galleries);
+                    })
+                    .catch((err) => console.log(err));
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    },
+
+    viewGaleries({ commit, state }) {
+        let user = localStorage.getItem("user");
+
+        try {
+            if (user !== null) {
+                let data = JSON.parse(user);
+                let formData = new FormData();
+                formData.append("marchand_id", data.marchand_id);
+
+                axios
+                    .post(`${state.baseURL}/content/marchand`, formData)
+                    .then((result) => {
+                        commit("setGaleries", result.data.reponse.galleries);
+                    })
+                    .catch((err) => console.log(err));
             }
         } catch (err) {
             console.log(err);

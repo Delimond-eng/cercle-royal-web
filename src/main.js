@@ -25,6 +25,12 @@ Vue.prototype.$axios = instance;
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
+
+import VModal from 'vue-js-modal/dist/index.nocss.js';
+import 'vue-js-modal/dist/styles.css';
+Vue.use(VModal, { componentName: 'GModal', dynamicDefault: { draggable: true, resizable: true } });
+
+
 //global components
 Vue.component('GLoading', require('@/components/widgets/loading').default);
 

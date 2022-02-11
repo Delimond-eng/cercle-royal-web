@@ -20,88 +20,86 @@
 
           <div class="row">
             <div class="col-lg-8 col-md-7">
-              <form action="#">
-                <div class="upload_modules">
-                  <div class="modules__title">
-                    <h3>Informations sur l'offre</h3>
-                  </div>
-                  <!-- end /.module_title -->
-
-                  <div class="modules__content">
-                    <div class="form-group">
-                      <label for="offer_name"
-                        >Designation
-                        <span>(ex. remise sur chaque achat de xxx)</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="offer_name"
-                        v-model="form.offerTitle"
-                        class="text_field"
-                        placeholder="Entrez la designation..."
-                      />
-                    </div>
-                  </div>
-                  <!-- end /.modules__content -->
+              <div class="upload_modules">
+                <div class="modules__title">
+                  <h3>Informations sur l'offre</h3>
                 </div>
-                <!-- end /.upload_modules -->
+                <!-- end /.module_title -->
 
-                <div class="upload_modules module--upload">
-                  <div class="modules__title">
-                    <h3>Ajoutez une image illustrative de l'offre</h3>
+                <div class="modules__content">
+                  <div class="form-group">
+                    <label for="offer_name"
+                      >Designation
+                      <span>(ex. remise sur chaque achat de xxx)</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="offer_name"
+                      v-model="form.offerTitle"
+                      class="text_field"
+                      placeholder="Entrez la designation..."
+                    />
                   </div>
-                  <!-- end /.module_title -->
+                </div>
+                <!-- end /.modules__content -->
+              </div>
+              <!-- end /.upload_modules -->
 
-                  <div class="modules__content">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <div class="upload_wrapper">
-                            <p>
-                              image
-                              <span>(JPEG, PNG ou GIF )</span>
-                            </p>
+              <div class="upload_modules module--upload">
+                <div class="modules__title">
+                  <h3>Ajoutez une image illustrative de l'offre</h3>
+                </div>
+                <!-- end /.module_title -->
 
-                            <div class="custom_upload">
-                              <label for="thumbnail">
-                                <input
-                                  type="file"
-                                  ref="img"
-                                  id="thumbnail"
-                                  multiple="multiple"
-                                  @change="uploadImage($event)"
-                                  class="files"
-                                />
-                                <span
-                                  class="btn btn--round btn--lg"
-                                  style="cursor: pointer"
-                                  >Choisir une image
-                                </span>
-                              </label>
-                            </div>
-                            <!-- end /.custom_upload -->
+                <div class="modules__content">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <div class="upload_wrapper">
+                          <p>
+                            image
+                            <span>(JPEG, PNG ou GIF )</span>
+                          </p>
+
+                          <div class="custom_upload">
+                            <label for="thumbnail">
+                              <input
+                                type="file"
+                                ref="img"
+                                id="thumbnail"
+                                multiple="multiple"
+                                @change="uploadImage($event)"
+                                class="files"
+                              />
+                              <span
+                                class="btn btn--md"
+                                style="cursor: pointer; background-color: #000003"
+                                >Choisir une image
+                              </span>
+                            </label>
                           </div>
-                          <!-- end /.upload_wrapper -->
+                          <!-- end /.custom_upload -->
                         </div>
-                      </div>
-
-                      <div class="col-md-6" v-if="upload_url">
-                        <img :src="upload_url" height="230" width="361" />
+                        <!-- end /.upload_wrapper -->
                       </div>
                     </div>
-                    <!-- end /.form-group -->
+
+                    <div class="col-md-6" v-if="upload_url">
+                      <img :src="upload_url" height="200" width="361" />
+                    </div>
                   </div>
-                  <!-- end /.upload_modules -->
+                  <button
+                    type="button"
+                    @click.prevent="createOffer"
+                    class="btn btn--round btn--lg btn--fullwidth text-uppercase mt-4"
+                  >
+                    Créer une offre
+                  </button>
+                  <!-- end /.form-group -->
                 </div>
                 <!-- end /.upload_modules -->
-                <button
-                  type="submit"
-                  @click.prevent="createOffer"
-                  class="btn btn--round btn--fullwidth btn--lg text-uppercase"
-                >
-                  Créer une offre
-                </button>
-              </form>
+              </div>
+              <!-- end /.upload_modules -->
             </div>
             <!-- end /.col-md-8 -->
 

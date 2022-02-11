@@ -3,7 +3,8 @@ const states = {
     user: {},
     marchandCategories: [],
     offers: [],
-    shops: []
+    shops: [],
+    galeries: []
 };
 
 export default states;

@@ -11,7 +11,6 @@
                   <h3 class="font-weight-bold">
                     Cercle <span style="color: rgb(199, 111, 4)"> Royal</span>
                   </h3>
-                  <p>Connectez-vous à votre compte marchand !</p>
                 </div>
                 <!-- end .login_header -->
 
@@ -47,7 +46,7 @@
                   </button>
 
                   <div class="login_assist">
-                    <p class="signup">
+                    <p class="signup text-center">
                       Vous n'avez pas un compte ?
                       <router-link tag="a" :to="{ name: 'register' }"
                         >créez un compte</router-link

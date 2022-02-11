@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import userWelcomeArea from "@/components/pages/public/pages/user_welcome_page.vue";
+import userWelcomeArea from "@/components/pages/public/dashboard.vue";
 export default {
   components: {
     userWelcomeArea,

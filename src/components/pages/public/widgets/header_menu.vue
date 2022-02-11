@@ -26,7 +26,7 @@
             <div class="col-lg-8 offset-lg-1 col-md-9 col-6 v_middle">
               <!-- start .author-area -->
               <div class="author-area">
-                <div class="author__notification_area">
+                <div class="author__notification_area" v-if="user">
                   <ul>
                     <li class="has_dropdown">
                       <div class="icon_wrap">
@@ -41,17 +41,17 @@
                         </div>
 
                         <div class="notifications_module">
-                          <div class="notification">
+                          <div class="notification" v-for="i in 3" :key="i">
                             <div class="notification__info">
                               <div class="info_avatar">
                                 <img src="assets/images/notification_head2.png" alt="" />
                               </div>
                               <div class="info">
                                 <p>
-                                  <span>Nouvelle</span> notification
+                                  <span>Nouvelle</span> notification({{ i }})
                                   <a href="#">vos clients demandent ... </a>
                                 </p>
-                                <p class="time">Just now</p>
+                                <p class="time">Maintenant</p>
                               </div>
                             </div>
                             <!-- end /.notifications -->
@@ -63,48 +63,6 @@
                           </div>
                           <!-- end /.notifications -->
 
-                          <div class="notification">
-                            <div class="notification__info">
-                              <div class="info_avatar">
-                                <img src="assets/images/notification_head2.png" alt="" />
-                              </div>
-                              <div class="info">
-                                <p>
-                                  <span>Nouvelle</span> notification
-                                  <a href="#">vos clients demandent ... </a>
-                                </p>
-                                <p class="time">Just now</p>
-                              </div>
-                            </div>
-                            <!-- end /.notifications -->
-
-                            <div class="notification__icons">
-                              <span class="lnr lnr-bubble commented noti_icon"></span>
-                            </div>
-                            <!-- end /.notifications -->
-                          </div>
-                          <!-- end /.notifications -->
-
-                          <div class="notification">
-                            <div class="notification__info">
-                              <div class="info_avatar">
-                                <img src="assets/images/notification_head2.png" alt="" />
-                              </div>
-                              <div class="info">
-                                <p>
-                                  <span>Nouvelle</span> notification
-                                  <a href="#">vos clients demandent ... </a>
-                                </p>
-                                <p class="time">Just now</p>
-                              </div>
-                            </div>
-                            <!-- end /.notifications -->
-
-                            <div class="notification__icons">
-                              <span class="lnr lnr-bubble commented noti_icon"></span>
-                            </div>
-                            <!-- end /.notifications -->
-                          </div>
                           <!-- end /.notifications -->
                         </div>
                         <!-- end /.dropdown -->
@@ -254,26 +212,32 @@
                     </li>
                     <li>
                       <router-link tag="a" :to="{ name: 'create-shop' }"
-                        ><span class="lnr lnr-plus-circle info-icon mr-2"></span>Créer
-                        points de vente</router-link
+                        ><span class="mr-2 font-weight-bold">+</span>Créer points de
+                        vente</router-link
                       >
                     </li>
                     <li>
                       <router-link tag="a" :to="{ name: 'create-offer' }"
-                        ><span class="lnr lnr-gift info-icon mr-2"></span>Créer une
-                        offre</router-link
+                        ><span class="mr-2 font-weight-bold">+</span>Créer
+                        offres</router-link
                       >
                     </li>
                     <li>
                       <router-link tag="a" :to="{ name: 'assign-offer' }"
-                        ><span class="lnr lnr-link info-icon mr-2"></span>Assigner une
+                        ><span class="lnr lnr-link info-icon mr-2"></span>Assigner
                         offre</router-link
                       >
                     </li>
                     <li>
                       <router-link tag="a" :to="{ name: 'config-offer' }"
                         ><span class="lnr lnr-gift info-icon mr-2"></span>Configuration
-                        remise sur offre</router-link
+                        remise</router-link
+                      >
+                    </li>
+                    <li>
+                      <router-link tag="a" :to="{ name: 'galleries' }"
+                        ><span class="lnr lnr-picture info-icon mr-2"></span>Création
+                        gallerie</router-link
                       >
                     </li>
                   </ul>

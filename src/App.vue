@@ -11,6 +11,7 @@ export default {
     this.$store.dispatch("logged_user");
     this.$store.dispatch("viewConfigData");
     this.$store.dispatch("viewUserData");
+    this.$store.dispatch("viewGaleries");
   },
 };
 </script>

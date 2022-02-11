@@ -9,7 +9,6 @@
               <div class="cardify signup_form">
                 <div class="login--header">
                   <h3>Créez un compte marchand</h3>
-                  <p>Remplissez tous les champs pour créer un compte marchand !</p>
                 </div>
                 <!-- end .login_header -->
                 <div class="login--form">
@@ -91,10 +90,22 @@
                     />
                     <span class="text-danger">{{ errorArr[5] }}</span>
                   </div>
+                  <div class="custom_checkbox">
+                    <input type="checkbox" id="ch2" v-model="form.hasAllowed" />
+
+                    <label for="ch2">
+                      <span class="shadow_checkbox"></span>
+                      <span class="label_text"
+                        >J'accepte la politique de confidentialité !</span
+                      >
+                    </label>
+                  </div>
 
                   <button
-                    class="btn btn--md btn--round register_btn"
-                    type="submit"
+                    :class="`btn btn--md btn--round register_btn ${
+                      !form.hasAllowed ? 'disabled' : ''
+                    }`"
+                    type="button"
                     @click.prevent="createAccount"
                   >
                     Créer un compte
@@ -154,6 +165,7 @@ export default {
         phone: "",
         pass: "",
         confirm: "",
+        hasAllowed: "",
       },
       errorArr: [],
       isLoading: false,
@@ -168,6 +180,9 @@ export default {
 
   methods: {
     createAccount() {
+      if (!this.form.hasAllowed) {
+        return;
+      }
       if (this.form.categorie === "") {
         this.errorArr.push("Catégorie marchandrequise !");
       } else {

@@ -9135,10 +9135,10 @@ span.counter {
     height: 100%;
     width: 100%;
     position: absolute;
-    background: -webkit-gradient(linear, right top, left top, from(#eee), to(#f5fafe));
-    background: -webkit-linear-gradient(right, #eee, #f5fafe);
-    background: -o-linear-gradient(right, #eee, #f5fafe);
-    background: linear-gradient(to left, #eee, #f5fafe);
+    background: -webkit-gradient(linear, right top, left top, from(#100230), to(#c76f04));
+    background: -webkit-linear-gradient(right, #100230, #100230);
+    background: -o-linear-gradient(right, #100230, #100230);
+    background: linear-gradient(to top, #100230, #100230);
     opacity: .7;
     top: 0;
     left: 0
@@ -12376,13 +12376,12 @@ span.counter {
 }
 
 .login_assist .recover {
-    text-align: left;
+    text-align: center;
     display: inline-block
 }
 
 .login_assist .signup {
-    text-align: right;
-    float: right
+    text-align: center;
 }
 
 .order_summary ul li {
@@ -12476,7 +12475,7 @@ span.counter {
 .signup_form .login--header h3 {
     color: #000;
     font-size: 26px;
-    padding-bottom: 20px
+    padding-bottom: 10px
 }
 
 .login .login--header p,

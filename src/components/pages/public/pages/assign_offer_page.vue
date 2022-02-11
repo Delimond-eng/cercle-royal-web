@@ -72,18 +72,18 @@
                       </div>
                       <span class="text-danger">{{ errorArr[1] }}</span>
                     </div>
+
+                    <button
+                      type="button"
+                      @click.prevent="assignerOffre"
+                      class="btn btn--round btn--md text-uppercase"
+                    >
+                      <span class="lnr lnr-link info-icon mr-2"></span>Assigner
+                    </button>
                   </div>
                 </div>
                 <!-- end /.modules__content -->
               </div>
-
-              <button
-                type="button"
-                @click.prevent="assignerOffre"
-                class="btn btn--round btn--fullwidth btn--lg text-uppercase"
-              >
-                <span class="lnr lnr-link info-icon mr-2"></span>Assigner
-              </button>
             </div>
             <!-- end /.col-md-8 -->
           </div>

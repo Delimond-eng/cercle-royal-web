@@ -12,6 +12,7 @@ import assignOfferPage from "@/components/pages/public/pages/assign_offer_page.v
 import configOfferPage from "@/components/pages/public/pages/config_remise_on_offer_page.vue";
 import creatingShopPage from "@/components/pages/public/pages/creating_shop_page.vue";
 import userProfilePage from "@/components/pages/public/pages/user_profil_page.vue";
+import creatingGalleriePage from "@/components/pages/public/pages/creating_galleries.vue";
 
 const routes = [{
         path: "/",
@@ -46,6 +47,11 @@ const routes = [{
                 path: '/user/profile',
                 component: userProfilePage,
                 name: 'user-profil'
+            },
+            {
+                path: '/galleries/create',
+                component: creatingGalleriePage,
+                name: 'galleries'
             }
 
         ]

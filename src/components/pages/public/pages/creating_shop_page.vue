@@ -71,18 +71,18 @@
                     />
                     <span class="text-danger">{{ errorArr[2] }}</span>
                   </div>
+                  <button
+                    type="button"
+                    @click.prevent="createShop"
+                    class="btn btn--round btn--fullwidth btn--lg text-uppercase"
+                  >
+                    Créer point de vente
+                  </button>
                 </div>
                 <!-- end /.modules__content -->
               </div>
 
               <!-- end /.upload_modules -->
-              <button
-                type="submit"
-                @click.prevent="createShop"
-                class="btn btn--round btn--fullwidth btn--lg text-uppercase"
-              >
-                Créer point de vente
-              </button>
             </div>
             <!-- end /.col-md-8 -->
 
